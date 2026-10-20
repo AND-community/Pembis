@@ -19,6 +19,7 @@ var manifest = pluginapi.Manifest{
 	Version:     "1.1.0",
 	Description: "AND arayüzünü pembe tonlarda kız temasına boyar",
 	Author:      "AND",
+	Permissions: []string{pluginapi.IzinTema},
 	Category:    "theme",
 }
 
