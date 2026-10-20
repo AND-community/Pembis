@@ -67,7 +67,7 @@ func TestPembisTemaState_NotStringMatching(t *testing.T) {
 	if strings.Contains(out, "Pembe tema hazır") {
 		t.Fatalf("mesajda \"pembe\" geçmesine rağmen uygulanan=temaVarsayilan iken pembe dalı gösterildi: %q", out)
 	}
-	if !strings.Contains(out, "Varsayılan mavi-mor tema geri yüklendi") {
+	if !strings.Contains(out, "Varsayılan Klasik teması geri yüklendi") {
 		t.Fatalf("uygulanan=temaVarsayilan iken varsayılan dal gösterilmedi: %q", out)
 	}
 
@@ -80,7 +80,7 @@ func TestPembisTemaState_NotStringMatching(t *testing.T) {
 	if !strings.Contains(out, "Pembe tema hazır") {
 		t.Fatalf("uygulanan=temaPembe iken pembe dalı gösterilmedi: %q", out)
 	}
-	if strings.Contains(out, "Varsayılan mavi-mor tema geri yüklendi") {
+	if strings.Contains(out, "Varsayılan Klasik teması geri yüklendi") {
 		t.Fatalf("uygulanan=temaPembe iken yanlışlıkla varsayılan dal gösterildi: %q", out)
 	}
 }

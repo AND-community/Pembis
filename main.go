@@ -10,6 +10,7 @@ import (
 	"github.com/charmbracelet/lipgloss"
 
 	"github.com/lucian95511/and/internal/pluginapi"
+	"github.com/lucian95511/and/internal/ui"
 )
 
 var manifest = pluginapi.Manifest{
@@ -31,15 +32,10 @@ var pembeTheme = pluginapi.ThemeReq{
 	Badge:     "199",
 }
 
-var varsayilanTheme = pluginapi.ThemeReq{
-	ThemeName: "Turkuaz",
-	Accent:    "63",
-	SelBG:     "57",
-	SelFG:     "255",
-	Muted:     "241",
-	Name:      "86",
-	Badge:     "33",
-}
+// varsayilanTheme, AND'ın ortak varsayılan temasıdır (internal/ui) — kendi
+// kopyasını tutmaz; varsayılan değiştiğinde "Varsayılan Temaya Dön" de
+// kendiliğinden güncel kalır.
+var varsayilanTheme = pluginapi.ThemeReq(ui.DefaultTheme())
 
 var (
 	pPembe   = lipgloss.Color("205")
@@ -190,7 +186,7 @@ func (m model) keyMenu(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 				m.mesaj = "Tema sıfırlanamadı: " + err.Error()
 				m.isErr = true
 			} else {
-				m.mesaj = "Varsayılan turkuaz tema anında geri yüklendi."
+				m.mesaj = "Varsayılan Klasik teması anında geri yüklendi."
 				m.isErr = false
 				m.uygulanan = temaVarsayilan
 			}
@@ -261,7 +257,7 @@ func (m model) viewOnay() string {
 					lipgloss.NewStyle().Foreground(lipgloss.Color("225")).Render("● Açık") + "\n\n",
 			)
 		} else {
-			sb.WriteString(stSoluk.Render("  Varsayılan mavi-mor tema geri yüklendi.") + "\n\n")
+			sb.WriteString(stSoluk.Render("  Varsayılan Klasik teması geri yüklendi.") + "\n\n")
 		}
 	}
 
