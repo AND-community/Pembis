@@ -9,6 +9,7 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
+	"github.com/lucian95511/and/dil"
 	"github.com/lucian95511/and/internal/pluginapi"
 	"github.com/lucian95511/and/internal/ui"
 )
@@ -16,7 +17,7 @@ import (
 var manifest = pluginapi.Manifest{
 	Name:        "pembis",
 	Label:       "Pembiş Tema",
-	Version:     "1.1.0",
+	Version:     "1.2.0",
 	Description: "AND arayüzünü pembe tonlarda kız temasına boyar",
 	Author:      "AND",
 	Permissions: []string{pluginapi.IzinTema},
@@ -74,6 +75,8 @@ func main() {
 		fmt.Println(string(data))
 		return
 	}
+	// AND, eklentiyi kendi etkin dilinde açar (AND_DIL).
+	dil.OrtamdanAyarla()
 
 	client, err := pluginapi.NewClientFromEnv()
 	if err != nil {
@@ -122,9 +125,9 @@ type menuSecenegi struct {
 }
 
 var menuler = []menuSecenegi{
-	{"Pembe Temayı Uygula", "Anında pembe tonlara boyar"},
-	{"Varsayılan Temaya Dön", "Anında turkuaz temaya geri döner"},
-	{"Çıkış", "Pembiş'ten çık"},
+	{dil.K("Pembe Temayı Uygula"), dil.K("Anında pembe tonlara boyar")},
+	{dil.K("Varsayılan Temaya Dön"), dil.K("Anında varsayılan Klasik temaya geri döner")},
+	{dil.K("Çıkış"), dil.K("Pembiş'ten çık")},
 }
 
 func newModel(client *pluginapi.Client) model {
@@ -174,20 +177,20 @@ func (m model) keyMenu(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 			return m, tea.Quit
 		case "Pembe Temayı Uygula":
 			if err := m.client.SetTheme(pembeTheme); err != nil {
-				m.mesaj = "Tema uygulanamadı: " + err.Error()
+				m.mesaj = dil.T("Tema uygulanamadı: ") + err.Error()
 				m.isErr = true
 			} else {
-				m.mesaj = "Pembe tema anında uygulandı!"
+				m.mesaj = dil.T("Pembe tema anında uygulandı!")
 				m.isErr = false
 				m.uygulanan = temaPembe
 			}
 			m.ekran = ekOnay
 		case "Varsayılan Temaya Dön":
 			if err := m.client.SetTheme(varsayilanTheme); err != nil {
-				m.mesaj = "Tema sıfırlanamadı: " + err.Error()
+				m.mesaj = dil.T("Tema sıfırlanamadı: ") + err.Error()
 				m.isErr = true
 			} else {
-				m.mesaj = "Varsayılan Klasik teması anında geri yüklendi."
+				m.mesaj = dil.T("Varsayılan Klasik teması anında geri yüklendi.")
 				m.isErr = false
 				m.uygulanan = temaVarsayilan
 			}
@@ -210,22 +213,22 @@ func (m model) viewMenu() string {
 	var sb strings.Builder
 
 	sb.WriteString(stBaslik.Render(pembeASCII) + "\n\n")
-	sb.WriteString(stEtiket.Render("  Tema değişikliği anında uygulanır, yeniden başlatma gerekmez.") + "\n\n")
+	sb.WriteString(stEtiket.Render(dil.T("  Tema değişikliği anında uygulanır, yeniden başlatma gerekmez.")) + "\n\n")
 
 	div := stSoluk.Render("  " + strings.Repeat("·", 38))
 	sb.WriteString(div + "\n\n")
 
 	for i, opt := range menuler {
 		if i == m.idx {
-			sb.WriteString(stSec.Render("  ▶  "+opt.baslik) + "\n")
-			sb.WriteString(stSoluk.Render("      "+opt.acikla) + "\n\n")
+			sb.WriteString(stSec.Render("  ▶  "+dil.T(opt.baslik)) + "\n")
+			sb.WriteString(stSoluk.Render("      "+dil.T(opt.acikla)) + "\n\n")
 		} else {
-			sb.WriteString(stNormal.Render("     "+opt.baslik) + "\n\n")
+			sb.WriteString(stNormal.Render("     "+dil.T(opt.baslik)) + "\n\n")
 		}
 	}
 
 	sb.WriteString(div + "\n")
-	sb.WriteString(stSoluk.Render("  ↑/↓ j/k  seç    enter  uygula    q  çıkış") + "\n")
+	sb.WriteString(stSoluk.Render(dil.T("  ↑/↓ j/k  seç    enter  uygula    q  çıkış")) + "\n")
 
 	kutu := stKutu.Render(sb.String())
 	if m.w > 0 && m.h > 0 {
@@ -245,24 +248,21 @@ func (m model) viewOnay() string {
 		sb.WriteString(stOk.Render("  ✓  "+m.mesaj) + "\n\n")
 
 		if m.uygulanan == temaPembe {
-			sb.WriteString(stVurgu.Render("  ♡ ♡ ♡  Pembe tema hazır!  ♡ ♡ ♡") + "\n\n")
-			sb.WriteString(stSoluk.Render("  Renk paleti:") + "\n")
-			sb.WriteString(
-				lipgloss.NewStyle().Foreground(lipgloss.Color("205")).Render("  ● Vurgu      ") +
-					lipgloss.NewStyle().Foreground(lipgloss.Color("162")).Render("● Seçim       ") +
-					lipgloss.NewStyle().Foreground(lipgloss.Color("218")).Render("● İsim") + "\n",
-			)
-			sb.WriteString(
-				lipgloss.NewStyle().Foreground(lipgloss.Color("199")).Render("  ● Rozet      ") +
-					lipgloss.NewStyle().Foreground(lipgloss.Color("182")).Render("● Soluk       ") +
-					lipgloss.NewStyle().Foreground(lipgloss.Color("225")).Render("● Açık") + "\n\n",
-			)
+			sb.WriteString(stVurgu.Render(dil.T("  ♡ ♡ ♡  Pembe tema hazır!  ♡ ♡ ♡")) + "\n\n")
+			sb.WriteString(stSoluk.Render(dil.T("  Renk paleti:")) + "\n")
+			// Renk adları, çevirilerin uzunluğundan bağımsız hizalı kalsın diye
+			// sütun genişliğine tamamlanır.
+			hucre := func(renk, ad string) string {
+				return lipgloss.NewStyle().Foreground(lipgloss.Color(renk)).Render(fmt.Sprintf("● %-13s", dil.T(ad)))
+			}
+			sb.WriteString("  " + hucre("205", dil.K("Vurgu")) + hucre("162", dil.K("Seçim")) + hucre("218", dil.K("İsim")) + "\n")
+			sb.WriteString("  " + hucre("199", dil.K("Rozet")) + hucre("182", dil.K("Soluk")) + hucre("225", dil.K("Açık")) + "\n\n")
 		} else {
-			sb.WriteString(stSoluk.Render("  Varsayılan Klasik teması geri yüklendi.") + "\n\n")
+			sb.WriteString(stSoluk.Render(dil.T("  Varsayılan Klasik teması geri yüklendi.")) + "\n\n")
 		}
 	}
 
-	sb.WriteString(stSoluk.Render("  enter / q  ile çık"))
+	sb.WriteString(stSoluk.Render(dil.T("  enter / q  ile çık")))
 
 	kutu := stKutu.Render(sb.String())
 	if m.w > 0 && m.h > 0 {

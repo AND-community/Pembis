@@ -1,0 +1,23 @@
+{
+  "Pembe Temayı Uygula": {"en": "Apply the Pink Theme", "de": "Rosa Design anwenden", "es": "Aplicar el tema rosa", "fr": "Appliquer le thème rose", "ru": "Применить розовую тему"},
+  "Anında pembe tonlara boyar": {"en": "Instantly paints everything in shades of pink", "de": "Färbt sofort alles in Rosatöne", "es": "Lo pinta todo al instante en tonos rosa", "fr": "Repeint tout instantanément en tons roses", "ru": "Мгновенно окрашивает всё в розовые тона"},
+  "Varsayılan Temaya Dön": {"en": "Back to the Default Theme", "de": "Zurück zum Standarddesign", "es": "Volver al tema predeterminado", "fr": "Revenir au thème par défaut", "ru": "Вернуть тему по умолчанию"},
+  "Anında varsayılan Klasik temaya geri döner": {"en": "Instantly returns to the default Classic theme", "de": "Wechselt sofort zurück zum Standarddesign Klassisch", "es": "Vuelve al instante al tema predeterminado Clásico", "fr": "Revient instantanément au thème par défaut Classique", "ru": "Мгновенно возвращает тему по умолчанию «Классика»"},
+  "Pembiş'ten çık": {"en": "Quit Pembiş", "de": "Pembiş beenden", "es": "Salir de Pembiş", "fr": "Quitter Pembiş", "ru": "Выйти из Pembiş"},
+  "Tema uygulanamadı: ": {"en": "Could not apply the theme: ", "de": "Design konnte nicht angewendet werden: ", "es": "No se pudo aplicar el tema: ", "fr": "Impossible d'appliquer le thème : ", "ru": "Не удалось применить тему: "},
+  "Pembe tema anında uygulandı!": {"en": "Pink theme applied instantly!", "de": "Rosa Design sofort angewendet!", "es": "¡Tema rosa aplicado al instante!", "fr": "Thème rose appliqué instantanément !", "ru": "Розовая тема применена!"},
+  "Tema sıfırlanamadı: ": {"en": "Could not reset the theme: ", "de": "Design konnte nicht zurückgesetzt werden: ", "es": "No se pudo restablecer el tema: ", "fr": "Impossible de réinitialiser le thème : ", "ru": "Не удалось сбросить тему: "},
+  "Varsayılan Klasik teması anında geri yüklendi.": {"en": "The default Classic theme was restored instantly.", "de": "Das Standarddesign Klassisch wurde sofort wiederhergestellt.", "es": "Se restauró al instante el tema predeterminado Clásico.", "fr": "Le thème par défaut Classique a été rétabli instantanément.", "ru": "Тема по умолчанию «Классика» восстановлена."},
+  "  Tema değişikliği anında uygulanır, yeniden başlatma gerekmez.": {"en": "  Theme changes apply instantly, no restart needed.", "de": "  Designänderungen gelten sofort, kein Neustart nötig.", "es": "  Los cambios de tema se aplican al instante, sin reiniciar.", "fr": "  Les changements de thème s'appliquent instantanément, sans redémarrage.", "ru": "  Тема меняется сразу, перезапуск не нужен."},
+  "  ↑/↓ j/k  seç    enter  uygula    q  çıkış": {"en": "  ↑/↓ j/k  select    enter  apply    q  quit", "de": "  ↑/↓ j/k  auswählen    enter  anwenden    q  beenden", "es": "  ↑/↓ j/k  elegir    enter  aplicar    q  salir", "fr": "  ↑/↓ j/k  choisir    enter  appliquer    q  quitter", "ru": "  ↑/↓ j/k  выбор    enter  применить    q  выход"},
+  "  ♡ ♡ ♡  Pembe tema hazır!  ♡ ♡ ♡": {"en": "  ♡ ♡ ♡  Pink theme ready!  ♡ ♡ ♡", "de": "  ♡ ♡ ♡  Rosa Design bereit!  ♡ ♡ ♡", "es": "  ♡ ♡ ♡  ¡Tema rosa listo!  ♡ ♡ ♡", "fr": "  ♡ ♡ ♡  Thème rose prêt !  ♡ ♡ ♡", "ru": "  ♡ ♡ ♡  Розовая тема готова!  ♡ ♡ ♡"},
+  "  Renk paleti:": {"en": "  Color palette:", "de": "  Farbpalette:", "es": "  Paleta de colores:", "fr": "  Palette de couleurs :", "ru": "  Палитра:"},
+  "Vurgu": {"en": "Accent", "de": "Akzent", "es": "Acento", "fr": "Accent", "ru": "Акцент"},
+  "Seçim": {"en": "Selection", "de": "Auswahl", "es": "Selección", "fr": "Sélection", "ru": "Выделение"},
+  "İsim": {"en": "Name", "de": "Name", "es": "Nombre", "fr": "Nom", "ru": "Имя"},
+  "Rozet": {"en": "Badge", "de": "Abzeichen", "es": "Insignia", "fr": "Badge", "ru": "Значок"},
+  "Soluk": {"en": "Muted", "de": "Gedämpft", "es": "Atenuado", "fr": "Atténué", "ru": "Приглушённый"},
+  "Açık": {"en": "Light", "de": "Hell", "es": "Claro", "fr": "Clair", "ru": "Светлый"},
+  "  Varsayılan Klasik teması geri yüklendi.": {"en": "  The default Classic theme was restored.", "de": "  Das Standarddesign Klassisch wurde wiederhergestellt.", "es": "  Se restauró el tema predeterminado Clásico.", "fr": "  Le thème par défaut Classique a été rétabli.", "ru": "  Тема по умолчанию «Классика» восстановлена."},
+  "  enter / q  ile çık": {"en": "  enter / q  to quit", "de": "  enter / q  zum Beenden", "es": "  enter / q  para salir", "fr": "  enter / q  pour quitter", "ru": "  enter / q  — выход"}
+}
