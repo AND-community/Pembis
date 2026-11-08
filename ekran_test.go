@@ -7,7 +7,7 @@ import (
 	"github.com/charmbracelet/x/ansi"
 
 	"github.com/lucian95511/and/dil/diltest"
-	"github.com/lucian95511/and/internal/pluginapi"
+	"github.com/lucian95511/and/pluginapi"
 )
 
 // TestEkranlar_HerDilde: Pembiş'in menüsü ve sonuç ekranları her dilde

@@ -12,7 +12,7 @@ interface in shades of pink (or switches it back to the default).
 Using the `POST /api/v1/theme` endpoint, it changes the accent/selection/name/badge colours of AND's
 main TUI. The change applies **instantly** — there is no need to restart AND. Other plugins such as
 DeltaX read the same theme with `GET /api/v1/theme` when they start and apply it to their own
-colours (see `internal/ui` in AND).
+colours (see `ui` in AND).
 
 Pembiş doesn't process or display any data that comes from the network or from other users — it
 only shows its own fixed menu. It asks for one permission, `theme`, the first time it is opened.

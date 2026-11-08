@@ -12,7 +12,7 @@ varsayılana geri döndüren) küçük bir tema eklentisi.
 `POST /api/v1/theme` uç noktasını kullanarak AND'ın ana TUI'sinin vurgu/seçim/isim/rozet renklerini
 değiştirir. Değişiklik **anında** uygulanır — AND'ı yeniden başlatmak gerekmez; DeltaX gibi diğer
 eklentiler de açılışta aynı temayı `GET /api/v1/theme` ile okuyup kendi renklerine uygular
-(bkz. AND'daki `internal/ui`).
+(bkz. AND'daki `ui`).
 
 Pembiş, ağdan/başka kullanıcılardan gelen hiçbir veriyi işlemez veya ekrana yazmaz — yalnızca
 kendi sabit menüsünü gösterir. İlk açılışta tek bir izin ister: `theme`.

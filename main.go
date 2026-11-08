@@ -10,8 +10,8 @@ import (
 	"github.com/charmbracelet/lipgloss"
 
 	"github.com/lucian95511/and/dil"
-	"github.com/lucian95511/and/internal/pluginapi"
-	"github.com/lucian95511/and/internal/ui"
+	"github.com/lucian95511/and/pluginapi"
+	"github.com/lucian95511/and/ui"
 )
 
 var manifest = pluginapi.Manifest{
@@ -34,7 +34,7 @@ var pembeTheme = pluginapi.ThemeReq{
 	Badge:     "199",
 }
 
-// varsayilanTheme, AND'ın ortak varsayılan temasıdır (internal/ui) — kendi
+// varsayilanTheme, AND'ın ortak varsayılan temasıdır (ui) — kendi
 // kopyasını tutmaz; varsayılan değiştiğinde "Varsayılan Temaya Dön" de
 // kendiliğinden güncel kalır.
 var varsayilanTheme = pluginapi.ThemeReq(ui.DefaultTheme())
